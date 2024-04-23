@@ -40,6 +40,14 @@ Run this file and click on link
 We will get search look of website.
 ![image](https://github.com/Rajput-Vivek-16/Website/assets/167712861/be05451b-2694-448c-a602-7942553afc8e)
 
+# Some Information
+e1 We have to enter the bond number and it will give out all purchase details and redumption details associate with it.
+![image](https://github.com/Rajput-Vivek-16/Website/assets/167712861/897e9621-0a42-4958-b819-381d23677b84)
+<br>
+e2 We can search any company name it will give data how many bonds they have purchased.
+
+
+
 
 
 
