@@ -1,15 +1,16 @@
 # Website using Flask 
-This is my first Git Repository.
-<br>
-Author - Rajput Vivek (23110269)
+Welcome to my first Git Repository! I'm Rajput Vivek (23110269), and I've created a project utilizing Flask to build a web application. Here's a step-by-step guide on how to use it:
 <br>
 <br>
 # First convert both PDFs to CSVs by using the Fitz library
 
 db1_political.pdf to politics.csv and db_2 purchaser.pdf to purchaser.csv by using the code which is given in pdf_to_csv.py file.
 
-# Importing CSVs files into MySQL 
-
+# Importing CSVs into MySQL 
+Before we begin, we need to convert two PDFs into CSV format using the Fitz library. Run the provided code in pdf_to_csv.py to convert:
+* db1_political.pdf to politics.csv
+* db_2 purchaser.pdf to purchaser.csv
+<br>
 We will use MySQL Workbench to create schema named vivek.
 ![image](https://github.com/Rajput-Vivek-16/Website/assets/167712861/cc32652b-9875-44c6-9970-598cec815282)
 <br>
@@ -27,24 +28,31 @@ purchaser table looks like this.
 <br>
 # Switch to VsCode
 
-We make a new folder which must include folder name templates that consists index.html and including files such as main.py
+Now, let's switch to VsCode. Create a new folder containing:
+<br>
+A folder named templates which includes:
+index.html
+Other necessary files such as main.py.
 ![image](https://github.com/Rajput-Vivek-16/Website/assets/167712861/2c70004c-d673-420d-be0a-5928757100a6)
 <br>
 # Flask 
-In main.py, we put code of main.py 
+In main.py, we put the code of main.py 
 ![image](https://github.com/Rajput-Vivek-16/Website/assets/167712861/cfae716a-de96-4fe1-92dd-e882ca601672)
 <br>
-Run this file and click on link
+Run this file and click on the link
 ![image](https://github.com/Rajput-Vivek-16/Website/assets/167712861/99ded63e-2fe6-4b11-b0dd-a844617ec761)
 <br>
-We will get search look of website.
+We will get a search look at the website.
 ![image](https://github.com/Rajput-Vivek-16/Website/assets/167712861/be05451b-2694-448c-a602-7942553afc8e)
 
-# Some Information
-e1 We have to enter the bond number and it will give out all purchase details and redumption details associate with it.
+# Explore the website
+e1 We have to enter the bond number, which will give out all purchase and redemption details associated with it.
 ![image](https://github.com/Rajput-Vivek-16/Website/assets/167712861/897e9621-0a42-4958-b819-381d23677b84)
 <br>
-e2 We can search any company name it will give data how many bonds they have purchased.
+That's it! We've successfully set up and explored the website. Feel free to reach out if you have any questions or feedback.
+<br>
+Happy coding! 🚀
+
 
 
 
