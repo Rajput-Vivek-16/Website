@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bond Analysis</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h2 {
+            color: #444;
+        }
+
+        /* Form styling */
+        form {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e6f7ff;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Bond Analysis</h2>
+
+    <!-- Form for searching by bond number or filter -->
+    <form method="post" action="/">
+        <label for="selector">Search for records:</label><br>
+        <input name="selector" type="radio" value="bond_number" id="bond_number" required>Bond Number<br>
+        <input name="selector" type="radio" value="filter" id="filter" required>
+        <select name="filter_type" id="dropdown">
+            <option value="Journal_date">Journal Date</option>
+            <option value="Date_of_Purchase">Date of Purchase</option>
+            <option value="Date_of_Expiry">Date of Expiry</option>
+            <option value="Name_of_Purchaser">Name of Purchaser</option>
+            <option value="Name_of_Political_Party">Name of Political Party</option>
+        </select><br>
+        <input name="box" type="text" id="search_input" placeholder="Enter search term" required>
+        <input type="submit" value="Search">
+    </form>
+
+    <!-- Form for selecting a company/individual -->
+    <form method="post" action="/">
+        <label for="company_individual">Select a Company/Individual:</label><br>
+        <select name="company_individual" id="company_individual" required>
+            {% for company in companies %}
+            <option value="{{ company }}">{{ company }}</option>
+            {% endfor %}
+        </select><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Form for selecting a political party -->
+    <form method="post" action="/">
+        <label for="political_party">Select a Political Party:</label><br>
+        <select name="political_party" id="political_party" required>
+            {% for party in political_parties %}
+            <option value="{{ party }}">{{ party }}</option>
+            {% endfor %}
+        </select><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Display search results for companies if present -->
+    {% if a_2_data %}
+    <h3>Search Results</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Reference No (URN)</th>
+            <th>Journal Date</th>
+            <th>Date of Purchase</th>
+            <th>Date of Expiry</th>
+            <th>Name of Purchaser</th>
+            <th>Name of Political Party</th>
+        </tr>
+        {% for row in a_2_data %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+            <td>{{ row[6] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    <!-- Display year data if available -->
+    {% if year_data %}
+    <h3>Bonds Data per Year</h3>
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Number of Bonds</th>
+            <th>Total Value</th>
+        </tr>
+        {% for row in year_data %}
+        <tr>
+            <td>{{ row[0] }}</td> <!-- Year -->
+            <td>{{ row[1] }}</td> <!-- Number of Bonds -->
+            <td>{{ (row[2] / 100000) | round(2) }} lakh</td> <!-- Total Value in lakhs -->
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+
+</html>
